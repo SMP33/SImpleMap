@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <button id="b_1" onclick="loadPhones()">0</button>
+
+  <script>
+    function loadPhones() {
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('POST', '/_get_data/', false);
+      xhr.send();
+
+      if (xhr.status != 200) {
+        alert('Ошибка ' + xhr.status + ': ' + xhr.statusText);
+      } else {
+        var text = document.getElementById("b_1").firstChild;
+        text.data=xhr.responseText
+      }
+    }
+  </script>
+
+</body>
+
+</html>
